@@ -1,17 +1,31 @@
-<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
-  <div class="field">
-    <%= f.label :unit %><br />
-    <%= f.text_field :unit %>
-  </div>
-  <div class="field">
-    <%= f.label :measure %><br />
-    <%= f.text_area :measure %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div class="well">
+	<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
+	  <% if @recipe.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+		  <ul>
+		  <% @recipe.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
+  
+	  <div class="field">
+		<%= f.label :unit %>
+		<%= f.text_field :unit %>
+	  </div>
+	  <div class="field">
+		<%= f.label :measure %>
+		<%= f.text_field :measure %>
+	  </div>
+	  <div class="field">
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit %>
+	  </div>
+	<% end %>
+</div>

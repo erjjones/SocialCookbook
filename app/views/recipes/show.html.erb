@@ -1,35 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @recipe.name %>
-</p>
+<div>
+	<h1><%= @recipe.name %></br><small><i><%= @recipe.author %>, <%= @recipe.category %></i></small></h1>	
+	<p class="download-info">
+	  <%= link_to('Edit Recipe', edit_recipe_path(@recipe), :class => 'btn btn-primary btn-large') %> 
+	  <%= link_to('Remove', @recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-large') %>	 	  	  
+	</p>
+</div>
 
-<p>
-  <b>Author:</b>
-  <%= @recipe.author %>
-</p>
+<h3>Instructions</h3>
+<p><%= @recipe.instructions %></p>
 
-<p>
-  <b>Category:</b>
-  <%= @recipe.category %>
-</p>
-
-<p>
-  <b>Instructions:</b>
-  <%= @recipe.instructions %>
-</p>
-
-<p>
-  <b>Imagelink:</b>
-  <%= @recipe.imagelink %>
-</p>
-
-<h2>Ingredients</h2>
+<h3>Ingredients</h3>
 <%= render @recipe.ingredients %>
-
-<h2>Add Ingredients:</h2>
+</br>
+<h3>Add Ingredients:</h3>
 <%= render "ingredients/form" %>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to 'Go back', recipes_path %> 
+

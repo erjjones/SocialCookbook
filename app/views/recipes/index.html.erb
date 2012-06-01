@@ -1,31 +1,31 @@
-<h1>Listing recipes</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Author</th>
-    <th>Category</th>
-    <th>Instructions</th>
-    <th>Imagelink</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p><%= link_to('Add a recipe', new_recipe_path, :class => 'btn btn-large btn-primary')  %></p>
 
-<% @recipes.each do |recipe| %>
-  <tr>
-    <td><%= recipe.name %></td>
-    <td><%= recipe.author %></td>
-    <td><%= recipe.category %></td>
-    <td><%= recipe.instructions %></td>
-    <td><%= recipe.imagelink %></td>
-    <td><%= link_to 'Show', recipe %></td>
-    <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-    <td><%= link_to 'Destroy', recipe, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+	<tbody>
+		<% @recipes.each do |recipe| %>
+		  <tr>
+			<!--<td>
+				<img src="<%= recipe.imagelink %>" alt="<%= recipe.name %>" width=30 heigh=30 />
+			</td>-->
+			<td>
+				<h3><%= recipe.name %></h3>
+				<i><%= recipe.author %> | <%= recipe.category %></i>
+				<p><small><%= recipe.instructions %></small></br>		
+				<h5>
+				<ul>
+					<% recipe.ingredients.each do |ingredient| %>
+					  	<li><%= ingredient.unit %> <%= ingredient.measure %> <%= ingredient.description %></li>
+					<% end %>
+				</ul>
+				</h5>
+                <%= link_to('Show', recipe, :class => 'btn btn-mini') %> <%= link_to('Edit', edit_recipe_path(recipe), :class => 'btn btn-mini') %> <%= link_to('Remove', recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini') %></p>				
+			</td>			
+		  </tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Recipe', new_recipe_path %>
+
