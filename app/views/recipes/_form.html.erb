@@ -1,3 +1,4 @@
+<div class="well">
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
@@ -12,26 +13,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :author %><br />
+    <%= f.label :author %>
     <%= f.text_field :author %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= f.text_field :category %>
   </div>
   <div class="field">
-    <%= f.label :instructions %><br />
+    <%= f.label :instructions %>
     <%= f.text_area :instructions %>
   </div>
   <div class="field">
-    <%= f.label :imagelink %><br />
+    <%= f.label :imagelink %>
     <%= f.text_field :imagelink %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
