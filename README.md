@@ -8,18 +8,18 @@
 
 2. Installing rails, open a GitBash window and run the following
 
-```$ gem install rails```
+* ```$ gem install rails```
 
 3. Clone the SocialCookbook
 
-```$ git clone git@github.com:githubusername/SocialCookbook.git```
+* ```$ git clone git@github.com:githubusername/SocialCookbook.git```
 
 4. Navigate to the root directory
 
-```$ cd SocialCookbook```
+* ```$ cd SocialCookbook```
 
 5. Spin up a rails server instance
 
-```$ rails server```
+*  ```$ rails server```
 
 6. Navigate to "localhost:3000"
