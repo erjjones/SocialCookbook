@@ -23,3 +23,7 @@
 ```$ rails server```
 
 * Navigate to "localhost:3000"
+
+###Learning
+
+* I used a basic [RailsGuide] (http://guides.rubyonrails.org/getting_started.html) to create this if you are interested in learning more.
