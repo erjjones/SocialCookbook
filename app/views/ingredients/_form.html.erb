@@ -1,4 +1,4 @@
-<div class="well">
+
 	<%= form_for([@recipe, @recipe.ingredients.build]) do |f| %>
 	  <% if @recipe.errors.any? %>
 		<div id="error_explanation">
@@ -11,21 +11,22 @@
 		  </ul>
 		</div>
 	  <% end %>
-  
+   <div class="row">
+    <div class="span4 well">
 	  <div class="field">
-		<%= f.label :unit %>
+		<%= f.label 'Amount' %>
 		<%= f.text_field :unit %>
 	  </div>
 	  <div class="field">
 		<%= f.label :measure %>
-		<%= f.text_field :measure %>
+		<%= f.collection_select :measure, Ingredient::MEASURE, :to_s, :to_s, :include_blank => false %>  
 	  </div>
 	  <div class="field">
 		<%= f.label :description %>
 		<%= f.text_field :description %>
-	  </div>
-	  <div class="actions">
-		<%= f.submit %>
-	  </div>
+	  </div>	  
+	<%= f.submit "Add Ingredient", :class => 'btn btn-primary' %>
+	  
+	</div>
+	</div>
 	<% end %>
-</div>

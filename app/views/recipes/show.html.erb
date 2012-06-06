@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<div>
-	<h1><%= @recipe.name %></br><small><i><%= @recipe.author %>, <%= @recipe.category %></i></small></h1>	
-	<p class="download-info">
-	  <%= link_to('Edit Recipe', edit_recipe_path(@recipe), :class => 'btn btn-primary btn-large') %> 
-	  <%= link_to('Remove', @recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-large') %>	 	  	  
-	</p>
+<% if notice %>
+	<div class="alert alert-success"><%= notice %></div>
+<% end %>
+<div class="page-header">
+	<h1><%= @recipe.name %> <small><%= @recipe.author %>, <%= @recipe.category %></small></h1>
 </div>
-
+ 
 <h3>Instructions</h3>
 <p><%= @recipe.instructions %></p>
 
@@ -17,5 +15,13 @@
 <h3>Add Ingredients:</h3>
 <%= render "ingredients/form" %>
 
-<%= link_to 'Go back', recipes_path %> 
+<p class="download-info">	  
+	  <%= link_to('Save and finish', recipes_path, :class => 'btn btn-primary') %> 
+	  <%= link_to('Edit Recipe', edit_recipe_path(@recipe), :class => 'btn') %> 
+	  <%= link_to('Remove', @recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn') %>	 	
+	  <%= link_to('Go to dashboard', recipes_path, :class => 'btn') %>
+</p>
+
+
+
 

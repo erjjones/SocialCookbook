@@ -1,30 +1,34 @@
 
-<p><%= link_to('Add a recipe', new_recipe_path, :class => 'btn btn-large btn-primary')  %></p>
+<p><%= link_to('Add a recipe', new_recipe_path, :class => 'btn btn-success btn-large')  %></p>
 
-<table class="table table-striped">
-	<tbody>
-		<% @recipes.each do |recipe| %>
-		  <tr>
-			<!--<td>
-				<img src="<%= recipe.imagelink %>" alt="<%= recipe.name %>" width=30 heigh=30 />
-			</td>-->
-			<td>
-				<h3><%= recipe.name %></h3>
-				<i><%= recipe.author %> | <%= recipe.category %></i>
-				<p><small><%= recipe.instructions %></small></br>		
-				<h5>
-				<ul>
-					<% recipe.ingredients.each do |ingredient| %>
-					  	<li><%= ingredient.unit %> <%= ingredient.measure %> <%= ingredient.description %></li>
-					<% end %>
-				</ul>
-				</h5>
-                <%= link_to('Show', recipe, :class => 'btn btn-mini') %> <%= link_to('Edit', edit_recipe_path(recipe), :class => 'btn btn-mini') %> <%= link_to('Remove', recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini') %></p>				
-			</td>			
-		  </tr>
-		<% end %>
-	</tbody>
-</table>
+ <div class="row">
+    <div class="span8">
+		<table class="table table-striped">
+			<tbody>
+				<% @recipes.each do |recipe| %>
+				  <tr>
+					<!--<td>
+						<img src="<%= recipe.imagelink %>" alt="<%= recipe.name %>" width=30 heigh=30 />
+					</td>-->
+					<td>
+						<h3><%= recipe.name %></h3>
+						<i><%= recipe.author %> | <%= recipe.category %></i>
+						<p><small><%= recipe.instructions %></small></br>		
+						<h5>
+						<ul>
+							<% recipe.ingredients.each do |ingredient| %>
+								<li><%= ingredient.unit %> <%= ingredient.measure %> <%= ingredient.description %></li>
+							<% end %>
+						</ul>
+						</h5>
+						<%= link_to('Show', recipe, :class => 'btn btn-mini') %> <%= link_to('Edit', edit_recipe_path(recipe), :class => 'btn btn-mini') %> <%= link_to('Remove', recipe, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini') %></p>				
+					</td>			
+				  </tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+<div>
 
 <br />
 

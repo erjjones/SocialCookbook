@@ -1,39 +1,30 @@
-<div class="well">
 <%= form_for(@recipe) do |f| %>
   <% if @recipe.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
-      <ul>
+      <!-- <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2> -->
+	  <div class="alert alert-error">
+	  <ul>
       <% @recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+	  </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
+<div class="row">
+    <div class="span4 well">
+	<p>Name your recipe</p>
     <%= f.text_field :name %>
+	<p>Author</p>
+    <%= f.text_field :author %> 
+	<p>Select a category</p>
+    <%= f.collection_select :category, Recipe::CATEGORIES, :to_s, :to_s, :include_blank => false %>  
+	<p>Define some basic instructions</p>
+    <%= f.text_area :instructions, :size => "40x15" %>
+	
+    <!-- <%= f.text_field :imagelink %>-->
+    <%= f.submit "Save and continue", :class => 'btn btn-primary' %> <%= link_to('Cancel', recipes_path, :class => 'btn') %> 
   </div>
-  <div class="field">
-    <%= f.label :author %>
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :instructions %>
-    <%= f.text_area :instructions %>
-  </div>
-  <div class="field">
-    <%= f.label :imagelink %>
-    <%= f.text_field :imagelink %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 </div>
+<% end %>
+
