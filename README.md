@@ -2,6 +2,12 @@
 
 *Ruby on Rails application to create recipes*
 
+###Versions
+* Ruby 1.9.2
+* Rails 3.2.5
+* Bundle 1.1.4
+* Sqlite
+
 ###Getting started
 
 * You will need [Ruby] (http://www.ruby-lang.org/en/downloads) language version 1.8.7 or higher
